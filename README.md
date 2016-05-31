@@ -1,5 +1,5 @@
 # Teste - Front-End
-O desafio é realizar o desenvolvimento front-end da homepage de um jornal fictício. O desenvolvimento deve seguir fielmente o layout disponibilizado nos arquivos abaixo (espaçamento, cores, tipografia e etc).
+O desafio é realizar o desenvolvimento front-end da homepage de um jornal fictício. O desenvolvimento deve seguir fielmente o layout disponibilizado nos arquivos abaixo (espaçamento, cores, tipografia e etc). Você não deve utilizar nenhum framework CSS (Bootstrap, Foundation e etc) neste desafio.
 
 ## Instruções - Topo
 * O submenu deve ser ativado no hover
@@ -25,6 +25,7 @@ O desafio é realizar o desenvolvimento front-end da homepage de um jornal fict�
 
 ## Observações
 * Você está livre para escolher a estrutura de diretórios da aplicação 
+* Você não deve utilizar nenhum framework CSS (Bootstrap, Foundation e etc) neste desafio.
 * Dúvida? Entre em contato por email: mateus.santos@oglobo.com.br
 
 ## Arquivos

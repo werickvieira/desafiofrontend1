@@ -1,11 +1,11 @@
 
 ## Instruções
 
-  git@github.com:werickvieira/desafiofrontend1.git
+    git@github.com:werickvieira/desafiofrontend1.git
 
-  cd desafiofrontend1
+    cd desafiofrontend1
 
-  cd app
+    cd app
 
 rode o comando node server.js  
 

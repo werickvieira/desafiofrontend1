@@ -253,7 +253,7 @@ main[role="main"] .main {
         color: #7D7575; }
       main[role="main"] .main .noticia .noticia__header--filtro .filtro .filtro__item .campo {
         display: inline-block;
-        padding: 6px 12px;
+        padding: 8px 12px;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -266,7 +266,7 @@ main[role="main"] .main {
           outline: 0; }
       main[role="main"] .main .noticia .noticia__header--filtro .filtro .filtro__item:after {
         content: "";
-        height: 27px;
+        height: 31px;
         width: 27px;
         background: #d93732 url("../img/seta-baixo.png") no-repeat 50% 50%;
         display: inline-block;
@@ -334,11 +334,11 @@ main[role="main"] .main {
     padding-right: 10px;
     padding-left: 30px; }
     main[role="main"] .main .conteudo p {
-      line-height: 1.5;
+      line-height: 1.2;
       padding-bottom: 15px;
       padding-top: 15px;
       font-family: "Verdana";
-      font-size: 14px;
+      font-size: 16px;
       color: #7D7575; }
 
 .localizacao {
@@ -357,7 +357,7 @@ main[role="main"] .main {
   .contato .formulario {
     border-right: 1px solid #fff; }
     .contato .formulario h5 {
-      font-size: 18px;
+      font-size: 22px;
       font-family: "Verdana";
       margin-bottom: 12px;
       font-weight: 700;
@@ -371,7 +371,9 @@ main[role="main"] .main {
         .contato .formulario .form .form__item label {
           display: inline-block;
           margin-bottom: 8px;
-          font-weight: bold; }
+          font-weight: bold;
+          font-size: 16px;
+          font-family: "Verdana"; }
         .contato .formulario .form .form__item input {
           width: 100%;
           padding: 8px 16px; }
@@ -382,8 +384,10 @@ main[role="main"] .main {
       border: 0;
       background: #e94347;
       color: #fff;
-      font-size: 18px;
-      cursor: pointer; }
+      font-size: 22px;
+      cursor: pointer;
+      font-family: "Verdana";
+      font-weight: bold; }
   .contato .enderecos {
     max-width: 350px;
     padding: 25px;
@@ -402,7 +406,8 @@ footer[role="footer"] {
   footer[role="footer"] .footer p {
     color: #fff;
     font-family: "Verdana";
-    font-weight: bold; }
+    font-weight: bold;
+    font-size: 18px; }
 
 @-webkit-keyframes fade {
   from {

@@ -229,7 +229,7 @@ main[role="main"]{
 						margin-bottom: 10px;
 						.campo{
 							display: inline-block;
-							padding: 6px 12px;
+							padding: 8px 12px;
 							-webkit-appearance: none;
 							   -moz-appearance: none;
 									appearance:none;
@@ -245,7 +245,7 @@ main[role="main"]{
 						}
 						&:after{
 							content: "";
-							height: 27px;
+							height: 31px;
 							width: 27px;
 							background: #d93732 url('../img/seta-baixo.png') no-repeat 50% 50%;
 							display: inline-block;
@@ -337,11 +337,11 @@ main[role="main"]{
 		    padding-right: 10px;
 		    padding-left: 30px;
 		    p{
-		    	line-height: 1.5;
+		    	line-height: 1.2;
 		    	padding-bottom: 15px;
 		    	padding-top: 15px;
 		    	font-family: $font-family;
-		    	font-size: 14px;
+		    	font-size: 16px;
 		    	color:#7D7575;
 		    }
 		}		
@@ -366,7 +366,7 @@ main[role="main"]{
 	.formulario{
 		border-right: 1px solid #fff;
 		h5{
-			font-size: 18px;
+			font-size: 22px;
 			font-family: $font-family;
 			margin-bottom: 12px;
 			font-weight: 700;
@@ -382,6 +382,8 @@ main[role="main"]{
 					display: inline-block;
 					margin-bottom: 8px;
 					font-weight: bold;
+					font-size: 16px;
+					font-family: $font-family;
 				}
 				input{
 					width: 100%;
@@ -396,8 +398,10 @@ main[role="main"]{
 			border: 0;
 			background: #e94347;
 			color: #fff;
-			font-size: 18px;
+			font-size: 22px;
 			cursor: pointer;
+			font-family: $font-family;
+			font-weight: bold;
 		}
 	}
 	.enderecos{
@@ -425,6 +429,7 @@ footer[role="footer"]{
  			color: #fff;
  			font-family: $font-family;
  			font-weight: bold;
+ 			font-size: 18px;
  		}
  	}
 }

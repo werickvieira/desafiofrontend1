@@ -1,0 +1,443 @@
+@import 'reset';
+
+
+
+// Classes
+
+$font-family : "Verdana";
+
+
+.limit {
+	max-width: 1090px; //1024
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.f-left{
+	float: left;
+}
+.f-right{
+	float: right;
+}
+
+.font-2{
+	font-size: 22px;
+	font-family: $font-family;
+	font-weight: 700;
+}
+
+img{
+	vertical-align: middle;
+}
+
+// grid 
+$grid-columns: 12;
+$grid-max: 1024px;
+
+@for $i from 1 through $grid-columns{ 
+  .w-#{$i} {
+    width: 100% / $grid-columns * $i;
+  }
+}
+
+
+// Header
+
+header[role="header"]{
+	background: #D93731; 
+	height: auto;
+	.header{
+		.logo{
+			max-width: 435px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-top: 30px;
+			padding-bottom: 20px
+			a{
+				display: block;
+				cursor: pointer;
+			}
+		}
+	}
+	nav[role="navegacao"]{
+		.menu{
+			list-style: none;
+			padding-top: 8px;
+			padding-bottom: 20px;
+			max-width: 760px;
+			margin-right: auto;
+			margin-left: auto;
+			.menu__item{
+				text-transform: uppercase;
+				display: inline-block;
+				.menu__link{
+					font-family: $font-family ;
+					font-size: 18px;
+					display: block;
+					padding: 16px 20px;
+					color:#fff;
+					cursor: pointer;
+				}
+			}
+			.sub-menu{
+				background: url('../img/seta-baixo.png') no-repeat 100% 50%;
+				position: relative;
+				.sub-menu__container{
+					width: 200px;
+					display: none;
+					position: absolute;
+					background: #e94347;
+					border-radius: 6px;
+					padding-bottom: 10px;
+					z-index: 10;
+					.sub-menu__item{
+					 	text-transform: lowercase;
+					 	a {
+							font-family: $font-family ;
+							font-size: 18px;
+							display: block;
+							padding: 10px 20px;
+							color:#fff;
+							cursor: pointer;
+					 	}
+ 						&:after {
+							content: " ";
+							min-height: 1px;
+							margin-left: 30px;
+							margin-right: 40px;
+							border-bottom: 1px solid #eaeaea;
+							display: block;
+						}
+						&:last-child{
+							&:after{
+								border:none;
+								display: none;
+							};
+						};
+					}
+				}
+				&:hover {
+					.sub-menu__container{
+						display: block;
+					}
+				};
+			}
+		}
+	}
+}
+
+main[role="main"]{
+	.slide{
+		width: 100%;
+		//height: 450px;
+		height: auto;
+		margin-bottom: 3em;
+		display: block;
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+		.slide__content{
+			.slide__item{
+				display: none;
+				img{
+					width: 100%;
+				}
+			}
+			.active{
+				display: block;
+				-webkit-animation-name: fade;
+				-webkit-animation-duration: .5s;
+				animation-name: fade;
+				animation-duration: .5s;
+			}
+		}
+		
+		.slide__control{
+			width: 100%;
+			position: absolute;
+			top: 43%; // 45%
+			left: 0;
+			cursor: pointer;
+			span{
+				position: absolute;
+				padding: 0 30px;
+				font-size: 4em;
+				color:#fff;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-o-user-select: none;
+				user-select: none;
+			}
+			.slide__control--prev{
+				left: 50px;
+				/*background: green;*/
+			}
+			.slide__control--next{
+				right: 50px;
+				/*background: red;*/
+			}
+		}
+		.slide__pagination{
+			position: absolute;
+			bottom: 10px;
+			width: 100%;
+			ol{
+				width: 120px;
+				margin-left: auto;
+				margin-right: auto;
+				li{	
+					background: #fff;
+					border-radius: 50%;
+					float: left;
+					margin: 5px;
+					padding: 5px;
+					cursor: pointer;
+				}
+				.active{
+					background: #da3732;
+				}
+			}
+		}
+	}
+	// Conteudo
+	.main{
+		padding-bottom: 6em;
+		.noticia{
+			overflow: hidden;
+			.noticia__header--titulo{
+				h2{
+					color: #2c3339;
+				}
+			}
+			.noticia__header--filtro{
+				.filtro{
+					.filtro__item{
+						label{
+							font-family: $font-family;
+							font-size: 15px;
+							color:#7D7575;
+						}
+						position: relative;
+						width: 100%;
+						max-width: 245px;
+						text-align: right;
+						margin-right: 10px;
+						margin-left: 10px;
+						margin-bottom: 10px;
+						.campo{
+							display: inline-block;
+							padding: 6px 12px;
+							-webkit-appearance: none;
+							   -moz-appearance: none;
+									appearance:none;
+							text-transform: uppercase;
+							font-weight: bold;
+							color: #fff;
+							border:0;
+							background: #e94347;
+							&:active,
+							&:focus{
+								outline:0;
+							}
+						}
+						&:after{
+							content: "";
+							height: 27px;
+							width: 27px;
+							background: #d93732 url('../img/seta-baixo.png') no-repeat 50% 50%;
+							display: inline-block;
+							vertical-align: middle;
+							position: absolute;
+							pointer-events:none;
+						}
+					}
+
+				}
+			} //noticia__header--filtro
+			.noticia__content{
+				clear:both;
+				display: block;
+				height: auto;
+				.noticia__item{
+					width: 100%;
+					overflow: hidden;
+					margin-top: 10px;
+					margin-bottom: 40px;
+					display: inline-block;
+					background: #d93732;
+					position: relative;
+					-webkit-animation-name: fade;
+					-webkit-animation-duration: 1s;
+							animation-name: fade;
+							animation-duration: 1s;
+					.noticia__item--imagem{
+						
+					}
+					.noticia__item--conteudo{
+						max-width: 690px;
+						margin-left: 30px;
+						padding-top: 10px;
+						padding-bottom: 25px;
+						h2{
+							color: #fff;
+							margin-bottom: 5px;
+							line-height: 1.2em;
+						}
+						p{
+							color: #fff;
+							font-family: $font-family;
+							font-size: 14px;
+							line-height: 1.2em;
+						}
+					}
+					.noticia__item--seta {
+					    background: #e94347;
+					    position: absolute;
+					    height: 100%;
+					    right: 0;
+					    width: 60px;
+					    font-size: 4em;
+					    padding-top: 45px;
+					    padding-bottom: 45px;
+					    color: #fff;
+					}
+					&:last-of-type{
+						margin-bottom: 60px;
+					}
+				}
+			}
+		} //Notícia
+
+		.grafico{
+			h2{
+				font-family: $font-family;
+				text-transform: uppercase;
+				margin-top: 10px;
+				margin-bottom: 20px;
+				color: #2c3339;
+			}
+			.grafico__item{
+				rect{
+					fill: steelblue;
+					stroke: white;
+				}
+				.text{
+					font-size  : 12px;
+					stroke     : #fff;
+					fill       : #fff;
+				}
+			}
+		}
+		.conteudo{
+			border-left: 2px solid #222;
+		    margin: 50px -22px;
+		    padding-right: 10px;
+		    padding-left: 30px;
+		    p{
+		    	line-height: 1.5;
+		    	padding-bottom: 15px;
+		    	padding-top: 15px;
+		    	font-family: $font-family;
+		    	font-size: 14px;
+		    	color:#7D7575;
+		    }
+		}		
+	}// Main
+}
+
+.localizacao{
+	overflow: hidden;
+	height: 400px;
+	clear: both;
+	width: auto;
+} // localizacao 
+
+.contato{
+	overflow: hidden;
+	background: #d93732;
+	padding-bottom: 2em;
+	.limit{
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	.formulario{
+		border-right: 1px solid #fff;
+		h5{
+			font-size: 18px;
+			font-family: $font-family;
+			margin-bottom: 12px;
+			font-weight: 700;
+			color: #fff;
+		}
+		.form{
+			max-width: 400px;
+			.form__item{
+				margin-bottom: 10px;
+				display: inline-block;
+				color: #fff;
+				label{
+					display: inline-block;
+					margin-bottom: 8px;
+					font-weight: bold;
+				}
+				input{
+					width: 100%;
+					padding: 8px 16px;
+				}
+				textarea{
+					width: 100%;
+				}
+			}
+		}button{
+			padding:12px 18px;
+			border: 0;
+			background: #e94347;
+			color: #fff;
+			font-size: 18px;
+			cursor: pointer;
+		}
+	}
+	.enderecos{
+		max-width: 350px;
+		padding: 25px;
+		font-family: $font-family;
+		color: #fff;
+		.endereco__item{
+			margin-bottom: 10px;
+			margin-top: 10px;
+			display: inline-block;
+		}	
+	}
+
+}
+
+
+footer[role="footer"]{
+ min-height: 30px;
+ background: #e94347;
+ padding-top: 30px;
+ padding-bottom: 15px;
+ 	.footer{
+ 		p{
+ 			color: #fff;
+ 			font-family: $font-family;
+ 			font-weight: bold;
+ 		}
+ 	}
+}
+
+
+// Animations
+
+@-webkit-keyframes fade {
+  from { opacity: .5 } 
+    to { opacity: 1 }
+}
+
+@keyframes fade {
+  from { opacity: .5 } 
+  to   { opacity: 1 }
+}

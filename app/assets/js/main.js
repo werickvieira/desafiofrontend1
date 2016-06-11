@@ -105,46 +105,48 @@ var APP = (function(){
 		$noticiaContainer.html( _htmlElemente );
     } 
 
- //    var compare = function (a, b) {
-	//   if (a > b) return 1
-	//   else if (a < b) return -1
-	//   else return 0
-	// } 
+    // Da mais Antiga para mais Recente
+    var ordenaDataAsc = function ( a, b ) {
+    	var obj = 'Data de publicação';
+	    return normalizaData(a[obj]) - normalizaData(b[obj]);
+	} 
 	
+	// Da mais Recente para a mais Antiga
+	var ordenaDataDesc= function ( a, b ) {
+    	var obj = 'Data de publicação';
+	    return normalizaData(b[obj]) - normalizaData(a[obj]);
+	} 
 	
 
- //    var preencherOrdenado = function( data ){
- //    	var noticias = [];
- //    	var novaData = [];
- //   	    var novo = [];
+    var preencherOrdenado = function( data , valor , editoriaId ){
+     
+     // Pego todos os objetos notícia  
+    	var noticias = [];
+    	var noticiasOrdernadas = [];
 
- //    	data.forEach(function( item ){
- //    		item.Notícias.forEach(function( el ){
- //    			// console.log( el['Data de publicação']);	
- //    			noticias.push(el);
- //    		})
- //    	});
-    	
-    	
- //    	noticias.forEach(function( c ){
- //    		novaData.push( normalizaData(c['Data de publicação']) );
- //    	});
+    	data.forEach(function( item ){
+    		if ( editoriaId !=="" && editoriaId !== undefined ) {
+    			if( item.Id === editoriaId ){
+		    		item.Notícias.forEach(function( el ){
+		    			noticias.push(el);
+		    		})
+	    	    }
+    		}else{
+	    		item.Notícias.forEach(function( el ){
+	    			noticias.push(el);
+	    		})
+    		}
+    	});
 
- //  
+    	if( valor === "recentes" ) {
+    		noticiasOrdernadas = noticias.sort( ordenaDataDesc );
+    		preencheFiltroEditoria( noticiasOrdernadas ); 
+    	}else{
+    		noticiasOrdernadas = noticias.sort( ordenaDataAsc );
+    		preencheFiltroEditoria( noticiasOrdernadas )
+    	}
 
- //    	console.log( novo );
-
-
-	// }
-
-
- //    // Ordernar data
- //    $ordenarData.on("change", function(){
- //    	var that = $(this).val();
- //    	$noticiaContainer.html("");
- //    	preencherOrdenado( $dados )
- //    });
-
+	}
 
 
 
@@ -219,6 +221,28 @@ var APP = (function(){
 		});
 	}
 
+
+	// Mapa
+	var initMap = function () {
+	  	var myLatLng = {lat: -25.363, lng: 131.044};
+	    var elemento = document.querySelector(".localizacao");
+	    var map = new google.maps.Map(elemento, {
+	      center: myLatLng,
+	      zoom: 8
+	    });
+
+
+	  var image = './assets/img/marcador.png';
+	  var beachMarker = new google.maps.Marker({
+	    position: myLatLng,
+	    map: map,
+	    icon: image
+	  });
+	}
+
+
+
+	// Eventos 
     
 	$next.on("click", function(){;
 		var direcao = $(this).attr("data-direcao");
@@ -261,6 +285,16 @@ var APP = (function(){
     });
 
 
+    // Ordernar data
+    $ordenarData.on("change", function(){
+    	var valor = $(this).val();
+    	var valorEditoria  = $filtroEditoria.val();
+    	$noticiaContainer.html("");
+    	preencherOrdenado( $dados, valor, valorEditoria  )
+    });
+
+
+
 
 	return{
 		init : function(){
@@ -283,7 +317,9 @@ var APP = (function(){
 					// console.log( xhr );
 					// console.log( err );
 				}
-			});
+			}),
+
+			initMap();
 		}
 	}
 }());
@@ -333,32 +369,8 @@ var bar = grafico.selectAll("g")
 
 
 
-// Mapa
-
-function initMap() {
-  	var myLatLng = {lat: -25.363, lng: 131.044};
-    var elemento = document.querySelector(".localizacao");
-    var map = new google.maps.Map(elemento, {
-      center: myLatLng,
-      zoom: 8
-    });
-
-
-  var image = './assets/img/marcador.png';
-  var beachMarker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    icon: image
-  });
-}
 
 
 
 
 
-
-(function(){
-
-	initMap();
-
-}());
